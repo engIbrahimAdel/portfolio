@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#must add this conf to use settings
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+  #this to make a url at the admin page to show media
